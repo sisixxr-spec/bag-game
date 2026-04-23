@@ -1,47 +1,35 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>شنطة المسافر الضايع – Mystery Edition</title>
+    <title>The Lost Traveler - Mystery Edition</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    
-    <div class="main-wrapper">
+    <div class="luxury-card">
         <header>
-            <h1><i class="fas fa-plane-departure"></i> لغز الحقيبة المفقودة</h1>
-            <p>حللوا المحتويات... واكشفوا الوجهة 🗺️</p>
+            <i class="fas fa-plane-departure gold-icon"></i>
+            <h1>The Lost Traveler</h1>
+            <p>Analyze the items.. Reveal the story 🕵️‍♀️</p>
         </header>
 
-        <div class="game-container">
-            <div class="suitcase-section">
-                <div class="suitcase-graphic">
-                    <i class="fas fa-luggage-cart fa-5x"></i>
-                </div>
-                <div class="controls">
-                    <input type="text" id="itemInput" placeholder="ماذا وجدتم؟ (مثلاً: جواز سفر)">
-                    <input type="text" id="reasonInput" placeholder="لماذا؟ (التفسير)">
-                    <button onclick="addItem()"><i class="fas fa-plus-circle"></i> أضف للشنطة</button>
-                </div>
-            </div>
-
-            <div class="investigation-section">
-                <h2>📊 لوحة التحقيق</h2>
-                <ul id="itemsList">
-                    </ul>
-            </div>
+        <div class="input-group">
+            <input type="text" id="itemInput" placeholder="What did you find? (e.g. Passport)">
+            <input type="text" id="reasonInput" placeholder="Why is it there? (Your theory)">
+            <button onclick="addItem()">Add to Investigation</button>
         </div>
 
-        <footer>
-            <button class="guess-btn" onclick="revealMystery()"><i class="fas fa-map-marked-alt"></i> كشف الوجهة النهائية</button>
-            <div id="destinationCard" class="hidden">
-                <h3>تم حل اللغز 🎉</h3>
-                <p>الوجهة هي: <span>السعودية 🇸🇦 (الضيافة والعيد)</span></p>
-            </div>
-        </footer>
-    </div>
+        <ul id="itemsList"></ul>
 
+        <div class="footer-action">
+            <button class="reveal-btn" onclick="revealMystery()">Reveal Destination 🗺️</button>
+            <div id="destination" class="hidden-box">
+                <h3>Destination: Saudi Arabia 🇸🇦</h3>
+                <p>Hospitality & Celebration ✨</p>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
