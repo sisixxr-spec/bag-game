@@ -2,32 +2,59 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>The Lost Traveler - Mystery Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lost Traveler - Game Edition</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="luxury-card">
-        <header>
-            <i class="fas fa-plane-departure gold-icon"></i>
+    <div class="game-container">
+        <div id="start-screen" class="screen">
+            <i class="fas fa-suitcase-rolling gold-icon"></i>
             <h1>The Lost Traveler</h1>
-            <p>Analyze the items.. Reveal the story 🕵️‍♀️</p>
-        </header>
-
-        <div class="input-group">
-            <input type="text" id="itemInput" placeholder="What did you find? (e.g. Passport)">
-            <input type="text" id="reasonInput" placeholder="Why is it there? (Your theory)">
-            <button onclick="addItem()">Add to Investigation</button>
+            <p class="story-text">A suitcase was found.. mysterious and locked. Inside, the story of a journey waiting to be solved. Are you ready to investigate?</p>
+            <button class="gold-btn" onclick="nextScreen('play-screen')">Start Investigation 🕵️‍♀️</button>
         </div>
 
-        <ul id="itemsList"></ul>
-
-        <div class="footer-action">
-            <button class="reveal-btn" onclick="revealMystery()">Reveal Destination 🗺️</button>
-            <div id="destination" class="hidden-box">
-                <h3>Destination: Saudi Arabia 🇸🇦</h3>
-                <p>Hospitality & Celebration ✨</p>
+        <div id="play-screen" class="screen hidden">
+            <header>
+                <span class="step-indicator">Clue #<span id="clue-count">1</span></span>
+                <h2>What did you find?</h2>
+            </header>
+            
+            <div class="input-area">
+                <input type="text" id="itemInput" placeholder="Enter item (e.g. Passport)">
+                <input type="text" id="reasonInput" placeholder="Why? (Your Theory)">
+                <button class="burgundy-btn" onclick="addClue()">Confirm Clue 📍</button>
             </div>
+
+            <div class="clues-log">
+                <h3>Investigation Log:</h3>
+                <ul id="itemsList"></ul>
+            </div>
+
+            <div id="twist-trigger" class="hidden">
+                <div class="twist-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>STOP! Based on these clues, what is the destination?</p>
+                    <button class="gold-btn" onclick="resumeGame()">Continue Investigation..</button>
+                </div>
+            </div>
+
+            <button id="final-btn" class="hidden reveal-btn" onclick="nextScreen('result-screen')">Analyze Final Destination 🗺️</button>
+        </div>
+
+        <div id="result-screen" class="screen hidden">
+            <div class="stamp-container">
+                <div class="stamp">
+                    <h2>SOLVED</h2>
+                    <hr>
+                    <h3>SAUDI ARABIA 🇸🇦</h3>
+                    <p>Hospitality & Celebration</p>
+                </div>
+            </div>
+            <p class="final-desc">Every clue led back home. The sweets, the luxury, and the warmth.</p>
+            <button class="gold-btn" onclick="location.reload()">Play Again 🔄</button>
         </div>
     </div>
     <script src="script.js"></script>
